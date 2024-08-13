@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link
+            rel="shortcut icon"
+            href="../src/info-bg.png"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="../src/stilus.css"
+        />
+        <title>Verziókezelő rendszerek</title>
+    </head>
+    <body>
+        <nav>
+            <a href="./index.html">Hasznos Tartalmak</a>
+            <a href="#fel">
+                <span class="material-symbols-outlined">stat_3</span>
+            </a>
+        </nav>
+        <span id="fel"></span>
+        <div class="container">
+            <h1>Git és Github</h1>
+            <h2>Verziókezelő rendszerek</h2>
+        </div>
+        <div class="container">
+            <h1>Verziókezelés (Version Control)</h1>
+            <div class="belso-container">
+                <h2>Verziókezelés</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_001.jpg" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        A verziókezelés (Version Control) egy olyan rendszer,
+                        amely rögzíti egy állomány, fájl (File) vagy állományok
+                        időbeli változásait, így később előhívhatja az egyes
+                        verziókat.
+                    </p>
+                    <p>
+                        Az oktatóanyagban szereplő példák esetében szoftverek
+                        forráskódját fogjuk használni a verzióvezérlés alatt
+                        álló fájlokként, bár a valóságban ezt szinte bármilyen
+                        típusú fájllal megtehetjük a számítógépen.
+                    </p>
+                    <h3>Miért van rá szükség:</h3>
+                    <dl>
+                        <dt>
+                            <b>Backup és visszaállítás.</b> A fájlok a
+                            szerkesztés közben mentésre kerülnek, és bármikor
+                            visszaállíthatók. Szükséged van a 2023. február 4-i
+                            verzióra? Nem gond.
+                        </dt>
+                        <dt>
+                            <b>Szinkronizáció.</b> Ha egy szoftveren egynél több
+                            ember dolgozik, fontos, hogy folyamatosan a kódbázis
+                            legfrisebb verzióját lássák mindannyian.
+                        </dt>
+                        <dt>
+                            <b>Változások követése.</b> Ahogy a fájlok
+                            változnak, az egyes változtatások üzenetekkel
+                            láthatók el, amik leírást adnak arról, hogy mit és
+                            miért csináltunk.
+                        </dt>
+                        <dt>
+                            <b>Felelősség követése.</b> Mivel az egyes
+                            változtatások egyértelmű felhasználóhoz/fejlesztőhöz
+                            köthetőek, mindig pontosan tudhatjuk, ki és mikor
+                            követett el bizonyos változtatásokat, nincs több
+                            egymásra mutogatás.
+                        </dt>
+                        <dt>
+                            <b
+                                >Elágazás (branching) és összefésülés
+                                (merging).</b
+                            >
+                            A kódbázis egy másolatát lemásolhatod egy külön
+                            ágba, hogy ott aztán elkülönítve követett
+                            változtatásokat hajts végre. Amint elkészült, ezeket
+                            a változtatásokat akár össze is fésülheted az
+                            eredeti kódbázissal.
+                        </dt>
+                    </dl>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://en.wikipedia.org/wiki/Version_control"
+                            target="_blank"
+                            >Wikipédia</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://it-sziget.hu/programozas/verziokezeles"
+                            target="_blank"
+                            >IT-sziget</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://ithub.hu/blog/post/Amit_tudnod_kell_fejlesztokent_IV_resz_Verziokezeles"
+                            target="_blank"
+                            >ITHub</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Verziókezelő rendszer (Version Control System)</h1>
+            <div class="belso-container">
+                <h2>
+                    Helyi (lokális) verziókezelő rendszer (Local Version Control
+                    System - LVCS)
+                </h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_002.jpg" />
+                        </picture>
+                    </div>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_003.png" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        Számos ember választja azt a megoldást, hogy
+                        (időbélyegzővel) ellátott mappákban tárolja a verzókat.
+                        <br />
+                        Ez nem igazán jó módszer, mert mi van, ha nem azt az
+                        állományt szerkesztem, amelyet kellene. Rossz helyre
+                        másolok fájlokat.
+                    </p>
+                    <p>
+                        A helyi verziókezelő rendszer a számítógépén található
+                        adatbázis, amely minden fájlváltozást javításként
+                        (patch) tárol. A javításkészlet (patch set) csak a
+                        fájlban a legutóbbi verzió óta végrehajtott
+                        módosításokat tartalmazza. Ha látni szeretné, hogyan
+                        nézett ki a fájl az adott pillanatban, hozzá kell adnia
+                        az összes releváns javítást a fájlhoz addig a
+                        pillanatig.
+                    </p>
+                    <p>
+                        A fő probléma itt az, hogy mindent helyben mentenek el.
+                        Ha bármi történne a helyi adatbázissal, az összes
+                        javítás (patch) elveszne. Hasonlóképpen, ha egyetlen
+                        verzióban kár keletkezne, az adott verzió után
+                        végrehajtott módosítások már nem léteznek.
+                    </p>
+                    <p>
+                        Bár nehéz lehet más fejlesztőkkel vagy csapatokkal
+                        együttműködni, van mód arra, hogy működjön.
+                    </p>
+                    <p>
+                        Az egyik legnépszerűbb LVCS-eszköz az RCS nevű rendszer
+                        volt, amelyet ma is sok számítógépen terjesztenek. Az
+                        RCS úgy működik, hogy a javításkészleteket (vagyis a
+                        fájlok közötti különbségeket - patch set) speciális
+                        formátumban tartja a lemezen.
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://www.softwaretestingo.com/distributed-version-control-systems/"
+                            target="_blank"
+                            >SoftwaretestingO</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://www.gnu.org/software/rcs/"
+                            target="_blank"
+                            >RCS</a
+                        >
+                    </p>
+                </div>
+            </div>
+            <div class="belso-container">
+                <h2>
+                    Központosított (centralizált) verziókezelő rendszer
+                    (Centralized Version Control System - CVCS)
+                </h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_004.jpg" />
+                        </picture>
+                    </div>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_005.png" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        A központosított verziókezelő rendszer ideális olyan
+                        csapatok számára, akiknek egyidejűleg ugyanazon a
+                        projekten kell dolgozniuk. Egyszerre több kliens is
+                        elérheti a fájlokat egyetlen szerveren, amely az összes
+                        fájlverziót tartalmazza. Így általában mindenki tudja,
+                        mit csinálnak mások, és az adminisztrátorok
+                        szabályozhatják, hogy ki mit tehet.
+                    </p>
+                    <p>
+                        Ez megkönnyíti az együttműködést más fejlesztőkkel vagy
+                        egy csapattal.
+                    </p>
+                    <p>
+                        Ennek a beállításnak azonban vannak komoly hátrányai is.
+                        A legnyilvánvalóbb az a hibapont, amelyet a központi
+                        szerver képvisel. Ha a szerver leáll egy órára, akkor
+                        ezalatt senki sem tud együttműködni, vagy elmenteni a
+                        verziószámú módosításokat, amin dolgozik. <br />Ha a
+                        központi adatbázis merevlemeze megsérül, és a megfelelő
+                        biztonsági mentések (backup) nem készültek el, akkor
+                        abszolút minden elveszik - a projekt teljes története,
+                        kivéve azokat a pillanatképeket (snapshot), amelyek az
+                        emberek helyi gépein vannak.
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://www.softwaretestingo.com/distributed-version-control-systems/"
+                            target="_blank"
+                            >SoftwaretestingO</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://cvs.nongnu.org/"
+                            target="_blank"
+                            >CVS (Concurrent Versions System)</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://subversion.apache.org/"
+                            target="_blank"
+                            >Subversion</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://www.perforce.com/"
+                            target="_blank"
+                            >Perforce</a
+                        >
+                    </p>
+                </div>
+            </div>
+            <div class="belso-container">
+                <h2>
+                    Elosztott verziókezelő rendszer (Distributed Version Control
+                    System - DVCS)
+                </h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_006.jpg" />
+                        </picture>
+                    </div>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_007.png" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        Ha elosztott verziókezelő rendszert használ, akkor nem
+                        csak a fájlok legfrissebb pillanatképeit (snapshot)
+                        tekintheti meg (check out) a szerverről. A tárat is
+                        tükrözi (mirror), ami azt jelenti, hogy mindenkinek, aki
+                        egy projekten együttműködik, megvan a saját, helyben
+                        tárolt teljes története a projektről.
+                    </p>
+                    <p>
+                        Ha a szerver elérhetetlenné válik vagy meghal, ne
+                        aggódj! Bármely ügyfél adattár (repository) elküldheti a
+                        projekt verziójának másolatát bármely másik ügyfélnek
+                        vagy vissza a kiszolgálóra, amikor az elérhetővé válik.
+                        Csupán egy kliensre van szükségünk egy megfelelő
+                        példánnyal, amely könnyen terjeszthető.
+                    </p>
+                    <p>
+                        Ezen túlmenően sok ilyen rendszer elég jól kezeli azt,
+                        hogy több távoli adattárral (repository) is
+                        dolgozhatnak, így ugyanazon a projekten belül különböző
+                        módon, egyidejűleg együttműködhet különböző
+                        embercsoportokkal. Ez lehetővé teszi többféle
+                        munkafolyamat beállítását.
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://www.softwaretestingo.com/distributed-version-control-systems/"
+                            target="_blank"
+                            >SoftwaretestingO</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://www.mercurial-scm.org/"
+                            target="_blank"
+                            >mercurial</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://darcs.net/"
+                            target="_blank"
+                            >darcs</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
