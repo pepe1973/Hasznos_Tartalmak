@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link
+            rel="shortcut icon"
+            href="../src/info-bg.png"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="../src/stilus.css"
+        />
+        <title>A Git elindítása, az adattár (Repository)</title>
+    </head>
+    <body>
+        <nav>
+            <a href="./index.html">Hasznos Tartalmak</a>
+            <a href="#fel">
+                <span class="material-symbols-outlined">stat_3</span>
+            </a>
+        </nav>
+        <span id="fel"></span>
+        <div class="container">
+            <h1>Git és Github</h1>
+            <h2>A Git elindítása, az adattár (Repository)</h2>
+        </div>
+        <div class="container">
+            <h1>A Git elindítása</h1>
+            <div class="belso-container">
+                <h2>A git init utasítás</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_019.jpg" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        Egy helyi könyvtárat, amely jelenleg nem áll
+                        verziókezelés alatt átalakíthatjuk Git-adattárrá
+                        (repository). <br />Navigáljunk el ehhez a könyvtárhoz a
+                        mappastruktúrában, majd nyissuk meg benne a Git Bash
+                        interface-t, amelyet a Git telepítése során kaptunk a
+                        gépünkre.
+                    </p>
+                    <p>Adjuk ki a következő utasítást:</p>
+                    <dl>
+                        <dt>git init</dt>
+                    </dl>
+                    <p>
+                        Ez létrehoz egy új alkönyvtárat .git néven, amely az
+                        összes szükséges adattárfájlt tartalmazza - egy Git
+                        adattárvázat. Ezen a ponton még semmit sem követ a
+                        projektben.
+                    </p>
+                    <p>
+                        Ha el akarja kezdeni a meglévő fájlok verzióvezérlését
+                        (nem üres könyvtárral), akkor valószínűleg el kell
+                        kezdenie követni (tracking) ezeket a fájlokat, és végre
+                        kell hajtania egy kezdeti véglegesítést (commit). Ezt
+                        néhány paranccsal érheti el, git add amely meghatározza
+                        a nyomon követni kívánt fájlokat, majd egy git commit:
+                    </p>
+                    <dl>
+                        <dt>
+                            git add *.c
+                            <i>(c-kiterjesztésű állományok kezelése.)</i>
+                        </dt>
+                        <dt>git add LICENSE</dt>
+                        <dt>git commit -m 'A projekt kezdeti verziója'</dt>
+                    </dl>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain#ch10-git-internals"
+                            target="_blank"
+                            >Git - Internals</a
+                        >
+                    </p>
+                </div>
+            </div>
+            <div class="belso-container">
+                <h2>Klónozás (Clone)</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_020.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Ha szeretne másolatot kapni egy meglévő Git-adattárról
+                        (repository) - például egy projektről, amelyhez hozzá
+                        szeretne járulni -, akkor a következő parancsra van
+                        szüksége git clone. <br />
+                        Ahelyett, hogy csak egy munkapéldányt kapnánk, a
+                        szerveren található szinte összes adat teljes másolatát
+                        megkapjuk. A projekt előzményeihez tartozó összes fájl
+                        minden verziója alapértelmezés szerint le lesz húzva,
+                        amikor fut git clone.
+                    </p>
+                    <p>
+                        Ha klónozni szeretnénk a Git linkelhető könyvtárát
+                        libgit2, a következőképpen tehetjük meg:
+                    </p>
+                    <dl>
+                        <dt>git clone https://github.com/libgit2/libgit2</dt>
+                    </dl>
+                    <p>
+                        Ez létrehoz egy libgit2 nevű könyvtárat, inicializál egy
+                        .gitkönyvtárat benne, leveszi az adott tárhely összes
+                        adatát, és megnézi a legújabb verzió munkapéldányát
+                        (working copy).
+                    </p>
+                    <p>
+                        Ha a tárat egy más nevű könyvtárba szeretnénk klónozni,
+                        mint a libgit2, megadhatjuk az új könyvtárnevet további
+                        argumentumként:
+                    </p>
+                    <dl>
+                        <dt>
+                            git clone https://github.com/libgit2/libgit2
+                            mylibgit
+                        </dt>
+                    </dl>
+                    <p>
+                        Ez a parancs ugyanazt teszi, mint az előző, de a
+                        célkönyvtár neve mylibgit.
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

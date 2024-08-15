@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link
+            rel="shortcut icon"
+            href="../src/info-bg.png"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="../src/stilus.css"
+        />
+        <title>
+            A Git rövid története, letöltése, telepítése és beállítása
+        </title>
+    </head>
+    <body>
+        <nav>
+            <a href="./index.html">Hasznos Tartalmak</a>
+            <a href="#fel">
+                <span class="material-symbols-outlined">stat_3</span>
+            </a>
+        </nav>
+        <span id="fel"></span>
+        <div class="container">
+            <h1>Git és Github</h1>
+            <h2>A Git rövid története, letöltése, telepítése és beállítása</h2>
+        </div>
+        <div class="container">
+            <h1>A Git rövid története</h1>
+            <div class="belso-container">
+                <h2>Történet</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_008.png" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        A Linux kernel egy meglehetősen nagy kiterjedésű nyílt
+                        forráskódú szoftverprojekt. A Linux kernel
+                        karbantartásának korai éveiben (1991-2002) a szoftver
+                        módosításait javításként (patch) és archivált fájlokként
+                        adták át. 2002-ben a Linux kernel projekt elkezdte
+                        használni a BitKeeper nevű szabadalmaztatott DVCS-t.
+                    </p>
+                    <p>
+                        2005-ben megszakadt a kapcsolat a Linux kernelt
+                        fejlesztő közösség és a BitKeepert fejlesztő
+                        kereskedelmi cég között, és az eszköz ingyenes státuszát
+                        visszavonták. Ez arra késztette a Linux fejlesztői
+                        közösséget (és különösen Linus Torvaldst, a Linux
+                        megalkotóját), hogy saját eszközt fejlesszenek ki a
+                        BitKeeper használata során tanultak néhány tanulsága
+                        alapján. Az új rendszer néhány célja a következő volt:
+                    </p>
+                    <dl>
+                        <dt>- Sebesség</dt>
+                        <dt>- Egyszerű kialakítás</dt>
+                        <dt>
+                            - A nemlineáris fejlesztés erős támogatása (több
+                            ezer párhuzamos ág)
+                        </dt>
+                        <dt>- Teljesen elosztva</dt>
+                        <dt>
+                            - Képes hatékonyan kezelni a nagy projekteket, mint
+                            például a Linux kernel (sebesség és adatméret)
+                        </dt>
+                    </dl>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-git"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>A Git letöltése és telepítése</h1>
+            <div class="belso-container">
+                <h2>Letöltés és telepítés</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_009.png" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        A Git használatának megkezdése előtt elérhetővé kell
+                        tennie azt a számítógépen. Még akkor is, ha már
+                        telepítve van, valószínűleg jó ötlet frissíteni a
+                        legújabb verzióra. Telepíthetjük csomagként vagy másik
+                        telepítőn keresztül, vagy letölthetjük a forráskódot és
+                        lefordíthatjuk saját magunk.
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/download/win"
+                            target="_blank"
+                            >Git - Windows</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://www.youtube.com/watch?v=QlCstCcgOkY"
+                            target="_blank"
+                            >Git letöltése és telepítése</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>A Git beállítása</h1>
+            <div class="belso-container">
+                <h2>Beállítás</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_010.png" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        Most, hogy van Git a rendszerünkön, meg kell tennünk
+                        néhány dolgot a Git-környezet testreszabása érdekében.
+                        Ezeket a dolgokat csak egyszer kell elvégeznünk bármely
+                        számítógépen, a frissítések között megmaradnak. A
+                        parancsok ismételt futtatásával bármikor módosíthatjuk
+                        őket.
+                    </p>
+                    <p>
+                        A Githez tartozik egy git config nevű eszköz, amely
+                        lehetővé teszi olyan konfigurációs változók beszerzését
+                        és beállítását, amelyek a Git megjelenésének és
+                        működésének minden aspektusát szabályozzák. Ezek a
+                        változók három különböző helyen tárolhatók:
+                    </p>
+                    <dl>
+                        <dt>
+                            <b>[path]/etc/gitconfig</b> fájl: A rendszer minden
+                            felhasználójára és összes adattárára alkalmazott
+                            értékeket tartalmazza. <br />Ha megadja a
+                            <b>git config --system</b> lehetőséget , akkor
+                            kifejezetten ebből a fájlból olvas és ír. Mivel ez
+                            egy rendszerkonfigurációs fájl, a módosításhoz
+                            rendszergazdai vagy szuperfelhasználói jogosultságra
+                            van szükség.
+                        </dt>
+                        <dt>
+                            <b>~/.gitconfig</b> vagy
+                            <b>~/.config/git/config</b> fájl: Önre, a
+                            felhasználóra jellemző értékek. A beállítás
+                            megadásával a Git kifejezetten ezt a fájlt olvassa
+                            és írhatja <b>git config --global</b>, és ez kihat a
+                            rendszeren használt összes adattárra.
+                        </dt>
+                        <dt>
+                            <b>config</b> vagy <b>.git/config</b> fájl a
+                            jelenleg használt adattár (repository) <b>git</b>
+                            könyvtárában található, az adott adattárra jellemző.
+                            <br />
+                            Kényszerítheti a Git-et, hogy olvasson és írjon
+                            ebből a fájlból a
+                            <b>git config --local</b> utasítással, de valójában
+                            ez az alapértelmezett. <br />Nem meglepő, hogy
+                            valahol egy Git-adattárban (repository) kell lennie,
+                            hogy ez a lehetőség megfelelően működjön.
+                        </dt>
+                    </dl>
+                    <p>
+                        Minden szint felülírja az előző szinten lévő értékeket.
+                    </p>
+                    <h3>Config állományok:</h3>
+                    <p>Adjuk ki a következő utasítást:</p>
+                    <dl>
+                        <dt>git config --list --show-origin</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <source
+                                media="(max-width: 1300px)"
+                                srcset="./images/kep_012.png"
+                            />
+                            <img src="./images/kep_011.png" />
+                        </picture>
+                    </div>
+                    <p>Rövidebb formában:</p>
+                    <dl>
+                        <dt>git config --list</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_013.png" />
+                        </picture>
+                    </div>
+                    <h3>Név és e-mail cím beállítása:</h3>
+                    <p>
+                        Az első dolog, amit a Git telepítésekor meg kell
+                        tennünk, a felhasználónév és az e-mail cím beállítása.
+                        Ez azért fontos, mert minden Git-commit felhasználja
+                        ezeket az információkat, és ez változatlanul beépül a
+                        létrehozni kezdődő commitokba:
+                    </p>
+                    <dl>
+                        <dt>
+                            git config --global user.name "John Doe"
+                            <i> (Ha több szóból áll, kötelező az idézőjel!) </i>
+                        </dt>
+                        <dt>git config --global user.name John</dt>
+                        <dt>
+                            git config --global user.email john.doe@gmail.com
+                        </dt>
+                    </dl>
+                    <h3>Alapértelmezett szövegszerkesztő beállítása:</h3>
+                    <p>
+                        Most, hogy személyazonosság be lett állítva,
+                        beállíthatjuk az alapértelmezett szövegszerkesztőt,
+                        amelyet akkor használunk, amikor a Gitnek szüksége van
+                        felhasználói üzenetre, amit be kell gépelni. Ha nincs
+                        konfigurálva, a Git a rendszer alapértelmezett
+                        szerkesztőjét használja.
+                    </p>
+                    <p>
+                        Ha másik szövegszerkesztőt, például Visual Studio
+                        Code-ot szeretne használni, a következőket teheti:
+                    </p>
+                    <dl>
+                        <dt>git config --global core.editor "code --wait"</dt>
+                    </dl>
+                    <h3>Alapértelmezett ág (branch) név:</h3>
+                    <p>
+                        Alapértelmezés szerint a Git létrehoz egy master nevű
+                        ágat, amikor új adattárolót (repository) hoz létre.
+                    </p>
+                    <p>
+                        Ha az alapértelmezett ágnévként szeretnénk beállítani a
+                        main-t, tegyük a következőt:
+                    </p>
+                    <dl>
+                        <dt>git config --global init.defaultBranch main</dt>
+                    </dl>
+                    <h3>Kulcsértékek lekérdezése:</h3>
+                    <p>
+                        Ha egy kulcsértékre szeretnénk rákérdezni, akkor adjuk
+                        ki a következő utasítást:
+                    </p>
+                    <dl>
+                        <dt>git config user.name</dt>
+                    </dl>
+                    <p>
+                        Ha azt is szeretnénk tudni, hogy melyik
+                        config-állományból kaptuk az értéket:
+                    </p>
+                    <dl>
+                        <dt>git config --show-origin user.name</dt>
+                    </dl>
+                    <h3>Segítség kérése:</h3>
+                    <p>
+                        Ha bármikor segítségre van szüksége a Git használata
+                        során, két egyenértékű módja van az átfogó kézikönyv
+                        (manpage) súgó megszerzésének bármely Git-parancshoz:
+                    </p>
+                    <dl>
+                        <dt>git help config</dt>
+                        <dt>git config --help</dt>
+                    </dl>
+                    <p>Ezek a parancsok offline is elérhetőek.</p>
+                    <p>
+                        Rövidebb formában, csak az alapinfók megjelenítése a
+                        parancssorban:
+                    </p>
+                    <dl>
+                        <dt>git config -h</dt>
+                    </dl>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup"
+                            target="_blank"
+                            >Git - Beállítás</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor"
+                            target="_blank"
+                            >Git - Szövegszerkesztők</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

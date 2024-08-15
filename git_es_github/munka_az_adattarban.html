@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link
+            rel="shortcut icon"
+            href="../src/info-bg.png"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="../src/stilus.css"
+        />
+        <title>Munka az adattárban (Repository)</title>
+    </head>
+    <body>
+        <nav>
+            <a href="./index.html">Hasznos Tartalmak</a>
+            <a href="#fel">
+                <span class="material-symbols-outlined">stat_3</span>
+            </a>
+        </nav>
+        <span id="fel"></span>
+        <div class="container">
+            <h1>Git és Github</h1>
+            <h2>Munka az adattárban (Repository)</h2>
+        </div>
+        <div class="container">
+            <h1>Első lépések</h1>
+            <div class="belso-container">
+                <h2>Nyomon követés (Tracking)</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_021.png" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        Ezen a ponton egy bona fide Git-adattárral (repository)
+                        kell rendelkeznünk a helyi gépen, és előttünk kell
+                        lennie az összes fájl lekért másolatának (checkout) vagy
+                        munkapéldányának (working copy). Általában minden
+                        alkalommal el kell kezdenünk a módosításokat, és
+                        pillanatfelvételeket (snapshot) kell készítenie ezekről
+                        a változtatásokról a adattárban (repository),
+                        valahányszor a projekt eléri a rögzíteni kívánt
+                        állapotot.
+                    </p>
+                    <p>
+                        A munkakönyvtárban (working directory) lévő minden egyes
+                        fájl két állapotú lehet: nyomon követett (tracked) vagy
+                        nyomon nem követett (untracked). A nyomon követett
+                        fájlok azok a fájlok, amelyek az utolsó
+                        pillanatfelvételben voltak, valamint minden újonnan
+                        létrehozott fájl; lehetnek módosítatlanok (unmodified),
+                        módosíthatók (modified) vagy színpadra tettek (staged).
+                        Röviden, a nyomon követett fájlok olyan fájlok,
+                        amelyekről a Git tud.
+                    </p>
+                    <p>
+                        A nyomon nem követett fájlok közé tartozik minden olyan
+                        fájl a munkakönyvtárban, amely nem szerepelt az utolsó
+                        pillanatfelvételben, és nincs a színpadon (staging
+                        area). Amikor először klónozunk egy adattárat, a
+                        rendszer minden fájlját nyomon követ, és nem módosítja,
+                        mert a Git most ellenőrizte őket, és mi nem
+                        szerkesztettünk semmit.
+                    </p>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_022.png" />
+                        </picture>
+                    </div>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+            <div class="belso-container">
+                <h2>Munka az állományokkal</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_023.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        A fő eszköz, amellyel meghatározhatjuk, hogy mely fájlok
+                        milyen állapotban vannak, a git status parancs. Ha ezt a
+                        parancsot közvetlenül egy klón után futtatjuk, valami
+                        ilyesmit kell látnunk:
+                    </p>
+                    <dl>
+                        <dt>git status</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_024.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Ez azt jelenti, hogy tiszta munkakönyvtárral
+                        rendelkezünk, más szóval, a nyomon követett fájlok
+                        egyike sem módosult. A Git nem lát nyomon követett
+                        fájlokat sem, különben itt lennének felsorolva. Végül a
+                        parancs megmondja, hogy melyik ágon tartózkodunk.
+                    </p>
+                    <h3>elso.txt állomány hozzáadása:</h3>
+                    <p>
+                        Adjunk a munka könyvtárhoz (working directory) egy
+                        elso.txt nevű állományt. És ismét nézzük meg az
+                        állapotot:
+                    </p>
+                    <dl>
+                        <dt>
+                            touch elso.txt <i>(Git Bash-ben használható.)</i>
+                        </dt>
+                        <dt>git status</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_025.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Láthatjuk, hogy az új elso.txt fájl még nincs nyomon
+                        követve. Az untracked alapvetően azt jelenti, hogy a Git
+                        olyan fájlt lát, amely az előző pillanatfelvételben
+                        (snapshot) nem létezett (not committed), és amelyet még
+                        nem tettek színpadra (not staged). <br />A Git addig nem
+                        kezdi el belefoglalni a véglegesítési pillanatképeibe
+                        (commit snapshot), amíg ezt kifejezetten nem mondjuk
+                        neki. Ezt azért teszi, hogy véletlenül se kezdjünk bele
+                        generált bináris fájlok vagy más olyan fájlok
+                        felvételébe, amelyeket nem akartunk belefoglalni.
+                    </p>
+                    <p>
+                        Egy új fájl követésének megkezdéséhez használjauk a git
+                        add parancsot.
+                    </p>
+                    <dl>
+                        <dt>git add elso.txt</dt>
+                        <dt>git status</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_026.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Láthatjuk, hogy az elso.txt állapota átkerült a
+                        "Véglegesítésre váró változtatások"-ba (Changes to be
+                        committed).
+                    </p>
+                    <h3>masodik.txt állomány hozzáadása:</h3>
+                    <p>
+                        Módosítsuk az elso.txt állományt (írjunk bele egy sort)
+                        és adjuk a munkakönyvtárhoz a masodik.txt állományt.
+                    </p>
+                    <dl>
+                        <dt>touch masodik.txt</dt>
+                        <dt>git status</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_027.png" />
+                        </picture>
+                    </div>
+                    <p>Mi történt?</p>
+                    <p>Az elso.txt két helyen is szerepel:</p>
+                    <dl>
+                        <dt>
+                            Véglegesítésre váró változtatások (Changes to be
+                            committed)
+                        </dt>
+                        <dt>
+                            Változtatások, amelyek nincsenek a színpadon a
+                            véglegesítéshez (Changes not staged for commit)
+                        </dt>
+                    </dl>
+                    <p>
+                        Ez azt jelenti, hogy a Git csinált egy másolatot az
+                        elso.txt-ről és abba elmentette az általunk beírt sort.
+                        <br />
+                        Majd jelezte nekünk ezt a tényt. <br />
+                        Most van két példányunk az elso.txt-ből, de a
+                        véglegesítésre csak az eredeti kerül. A másik, a
+                        módosított vár a sorára.
+                    </p>
+                    <p>
+                        A masodik.txt megjelent, mint nem követett (untracked)
+                        állomány.
+                    </p>
+                    <p>
+                        Varrjuk el a szálakat, azaz mindent rakjunk a színpadra.
+                        Erre legalább három módszer használható:
+                    </p>
+                    <dl>
+                        <dt>git add elso.txt masodik.txt</dt>
+                        <dt>
+                            git add *.txt
+                            <i>(Csak a txt-kiterjesztésű állományok.)</i>
+                        </dt>
+                        <dt>git add * <i>(az összes állomány.)</i></dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_028.png" />
+                        </picture>
+                    </div>
+                    <h3>Rövid státusz lekérdezés:</h3>
+                    <p>
+                        Bár a git status kimenet elég átfogó, egyben elég
+                        bőbeszédű is. A Git rövid állapotjelzővel is
+                        rendelkezik, így kompaktabb módon láthatjuk a
+                        módosításokat. Ha futtatju git status -s, vagy git
+                        status --shortsokkal egyszerűbb kimenetet kapunk a
+                        parancsból. Adjunk hozzá egy harmadik.txt-t és
+                        módosítsuk a masodik.txt:
+                    </p>
+                    <dl>
+                        <dt>git status -s</dt>
+                        <dt>git status --short</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_029.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        A nem nyomon követett (untracked), új fájlok mellett van
+                        egy ??, a színpadra tett fájlok mellett egy A, a
+                        módosított fájlok mellett egy M. A kimenetnek két
+                        oszlopa van - a bal oldali oszlop a színpad (staging
+                        area) állapotát, a jobb oldali pedig a munkafa (working
+                        tree) állapotát jelzi.
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+            <div class="belso-container">
+                <h2>Állományok kizárása a Git-ből</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_030.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Gyakran előfordul, hogy olyan fájlosztályokkal
+                        rendelkezünk, amelyeket nem szeretnénk, hogy a Git
+                        automatikusan hozzáadjon vagy akár nyomon nem
+                        követettként mutasson meg. Ezek általában automatikusan
+                        generált fájlok, például naplófájlok vagy az
+                        összeállítási rendszer által létrehozott fájlok. <br />
+                        Ilyen esetekben létrehozhatunk fájllista mintákat,
+                        amiket egy .gitignore nevű állományban menthetünk el.
+                    </p>
+                    <dl>
+                        <dt>touch .gitignore</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_031.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Az első sor arra utasítja a Git-et, hogy figyelmen kívül
+                        hagyjon minden „.o” vagy „.a” végződésű fájlt - olyan
+                        objektum- és archív fájlokat, amelyek a kód
+                        felépítésének termékei lehetnek. A második sor arra
+                        utasítja a Git-et, hogy figyelmen kívül hagyja az összes
+                        olyan fájlt, amelyek neve tilde-re (~) végződik, amelyet
+                        sok szövegszerkesztő, például az Emacs használ az
+                        ideiglenes fájlok megjelölésére.
+                    </p>
+                    <h3>Glob:</h3>
+                    <p>
+                        A Glob minták olyanok, mint a shell által használt
+                        egyszerűsített reguláris kifejezések. A csillag (*)
+                        nulla vagy több karakternek felel meg, [abc]megfelel a
+                        zárójelben lévő bármely karakternek (ebben az esetben a,
+                        b vagy c), egy kérdőjel (?) egyetlen karakterre egyezik,
+                        és a karaktereket kötőjellel elválasztott zárójelek (
+                        [0-9]) megfelelnek a köztük lévő bármely karakternek
+                        (ebben az esetben 0 és 9 között). Két csillagot is
+                        használhat a beágyazott könyvtárak egyeztetésére; a/**/z
+                        egyezhet a következő a/z, a/b/z, a/b/c/z esetekkel, és
+                        így tovább.
+                    </p>
+                    <p>További példák:</p>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_032.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Egyszerű esetben egy adattár (repository) egyetlen
+                        .gitignore fájlt tartalmazhat a gyökérkönyvtárában,
+                        amely rekurzív módon vonatkozik a teljes tárolóra.
+                        Azonban az is lehetséges, hogy további .gitignore fájlok
+                        legyenek az alkönyvtárakban. Ezekbe a .gitignore
+                        fájlokba beágyazott szabályok csak azokra a fájlokra
+                        vonatkoznak, amelyek abban a könyvtárban vannak, ahol
+                        találhatók.
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://en.wikipedia.org/wiki/Glob_(programming)"
+                            target="_blank"
+                            >Wikipédia</a
+                        >
+                    </p>
+                    <p>
+                        <a
+                            href="https://www.malikbrowne.com/blog/a-beginners-guide-glob-patterns/"
+                            target="_blank"
+                            >Malik Browne</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Változások nyomonkövetése</h1>
+            <div class="belso-container">
+                <h2>A git diff utasítás</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_033.jpg" />
+                        </picture>
+                    </div>
+                    <p>
+                        Ha a git status parancs túl homályos a számunkra, és
+                        szeretnénk tudni, hogy pontosan mit módosított, nem csak
+                        azt, hogy mely fájlok változtak meg - használhatjuk a
+                        git diff parancsot.
+                    </p>
+                    <p>
+                        valószínűleg ezt fogjuk használni leggyakrabban a
+                        következő két kérdés megválaszolásához: <br />
+                        Mit változtattál meg (modified), de még nem tettél
+                        színpadra (staged)? <br />És mit tettél színpadra
+                        (staged), amit véglegesíteni (commit) készülsz?
+                    </p>
+                    <dl>
+                        <dt>git diff</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_034.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Látható, hogy a masodik.txt megváltozott, mert beírásra
+                        került egy sor. A harmadik.txt-vel nem foglalkozik.
+                    </p>
+                    <p>
+                        Ez a parancs összehasonlítja a munkakönyvtár (working
+                        directory) tartalmát a színpadon (staging area) lévővel.
+                        Az eredmény megmutatja azokat a változtatásokat,
+                        amelyeket még nem hajtott végre.
+                    </p>
+                    <p>
+                        Fontos megjegyezni, hogy git diff önmagában nem jeleníti
+                        meg az utolsó véglegesítés (commit) óta végrehajtott
+                        összes módosítást - csak azokat a változtatásokat,
+                        amelyek még nem kerültek színpadra (staged).
+                    </p>
+                    <h3>A legutolsó színpadra rakás óta történt változások:</h3>
+                    <p>
+                        Ha látni szeretnénk, hogy mit tettünk a színpadra, ami
+                        bekerül a következő véglegesítésbe (commit),
+                        használhatjuk a git diff --staged utasítást. Ez a
+                        parancs összehasonlítja a színpadra tett változtatásokat
+                        a legutóbbi véglegesítéssel (commit):
+                    </p>
+                    <dl>
+                        <dt>git diff --staged <i>(vagy)</i></dt>
+                        <dt>git diff --cached</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_035.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Most kezdjük el követni a harmadik.txt és mindent
+                        rakjunk a színpadra (stage).
+                    </p>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_036.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Jól láthatóan elkülönül a három állományon végzett
+                        változtatás. <br />És az is, hogy a .gitignore-t
+                        figyelmenkívül hagyja a Git.
+                    </p>
+                    <h3>Külső eszközök:</h3>
+                    <p>
+                        Van egy másik mód is ezeknek a különbségeknek a
+                        megtekintésére, ha inkább egy grafikus vagy külső
+                        diff-megjelenítő programot választ. Ha a git diff
+                        helyett inkább git difftool utasítást használja, akkor
+                        megtekintheti ezeket a különbségeket olyan
+                        szoftverekben, mint az emerge, vimdiff és még sok más
+                        (beleértve a kereskedelmi termékeket is).
+                    </p>
+                    <dl>
+                        <dt>git difftool --tool-help</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_037.png" />
+                        </picture>
+                    </div>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Változások véglegesítése (Commit)</h1>
+            <div class="belso-container">
+                <h2>A git commit utasítás</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_038.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Most, hogy a színpad (staging area) a kívánt módon van
+                        beállítva, véglegesíthetjük (commit) a módosításokat. Ne
+                        feledjük, hogy bármi, ami még nincs színpadra téve
+                        (unstaged) - az általunk létrehozott vagy módosított
+                        fájlok, amelyeken git add utasítás még nem futott - nem
+                        kerül bele ebbe a véglegesítésbe. <br />Ezek módosított
+                        fájlokként maradnak a lemezen. Ebben az esetben tegyük
+                        fel, hogy amikor legutóbb futott git status, azt látta,
+                        hogy minden színpadra került, így készen áll a
+                        változtatások véglegesítésére (commit). <br />A
+                        véglegesítés legegyszerűbb módja a következő beírása.
+                        Ezzel elindítja a választott szerkesztőt:
+                    </p>
+                    <dl>
+                        <dt>git commit</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_039.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Látható, hogy az alapértelmezett véglegesítési üzenet
+                        tartalmazza a git status parancs legfrissebb kimenetét
+                        megjegyzésként, és egy üres sort a tetején. <br />
+                        Eltávolíthatjuk ezeket a megjegyzéseket, és beírhatjuk a
+                        kötelező üzenetet, vagy ott hagyhatjuk őket, hogy
+                        emlékezzünk, mit véglegesítettünk.
+                    </p>
+                    <p>
+                        Ha még egyértelműbben szeretnénk emlékezni arra, hogy
+                        mit módosítottunk, átadhatjauk a -v lehetőséget a git
+                        commit-nak. Ezzel a módosítás diff-je is megjelenik a
+                        szerkesztőben, így pontosan láthatjuk, hogy milyen
+                        változtatásokat véglegesítettünk.
+                    </p>
+                    <dl>
+                        <dt>git commit -v</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_040.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Amikor kilép a szerkesztőből, a Git létrehozza a
+                        véglegesítést ezzel a véglegesítési üzenettel (a
+                        megjegyzések és a különbség eltávolításával).
+                    </p>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_041.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Alternatív megoldásként beírhatja a véglegesítési
+                        üzenetet a commit paranccsal egy sorba úgy, hogy egy
+                        jelző után adja meg -m, például:
+                    </p>
+                    <dl>
+                        <dt>
+                            git commit -m "Első mentés"
+                            <i>(Több szó esetén kötelező a zárójel!)</i>
+                        </dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_042.png" />
+                        </picture>
+                    </div>
+
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+            <div class="belso-container">
+                <h2>A színpad (Staging Area) átugrása</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_043.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Bár elképesztően hasznos lehet, ha pontosan úgy
+                        készítjük el a commitokat, ahogyan szeretnénk, a színpad
+                        (staging area) néha kicsit összetettebb, mint amennyire
+                        szüksége van a munkafolyamatban. Ha ki akarja hagyni a
+                        színpadot, a Git egy egyszerű parancsikont biztosít. Ha
+                        a git commit parancshoz hozzáadja az -a opciót, a Git
+                        automatikusan színpadra állít minden már nyomon követett
+                        fájlt a véglegesítés előtt, így a git add rész
+                        kihagyható:
+                    </p>
+                    <dl>
+                        <dt>git commmit -a <i>(-a: All changed files)</i></dt>
+                    </dl>
+                    <p>Változtassuk meg a harmadik.txt-t.</p>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_044.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Vigyázzunk az -a jelölő használatával, mert nem várt
+                        eredményeket hozhat!
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Állományok törlése, átnevezése</h1>
+            <div class="belso-container">
+                <h2>Állományok törlése</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_045.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Ha el szeretnénk távolítani egy fájlt a Gitből, el kell
+                        távolítania azt a nyomon követett (tracked) fájljaink
+                        közül (pontosabban el kell távolítanunk az színpadról
+                        (staging area)), majd véglegesítenie (commit) kell. A
+                        git rm parancs ezt megteszi, és eltávolítja a fájlt a
+                        munkakönyvtárból (working directory), így a következő
+                        alkalommal nem látjuk nyomon követett fájlként. <br />A
+                        következő véglegesítéskor törlődik az állomány a
+                        színpadról és a Git-ről.
+                    </p>
+                    <dl>
+                        <dt>git rm harmadik.txt</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_046.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        Ha csak az rm utasítást adtuk ki, akkor csak
+                        munkakönyvtárból töröltük az állományt, de a követett
+                        állományok közül nem. <br />Viszont lekerül a
+                        színpadról.
+                    </p>
+                    <dl>
+                        <dt>rm masodik.txt</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_047.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        A harmadik.txt állományt a színpadról a következő
+                        utasítással vehetjük le. Ekkor viszont a véglegesítéssel
+                        nem törlődik a Git-ből:
+                    </p>
+                    <dl>
+                        <dt>git restore --staged harmadik.txt</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_048.png" />
+                        </picture>
+                    </div>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+            <div class="belso-container">
+                <h2>Állományok átnevezése</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_049.jpg" />
+                        </picture>
+                    </div>
+                    <p>
+                        Ha átnevezünk egy fájlt a Gitben, a Gitben nem
+                        tárolódnak metaadatok, amelyek azt mondanák, hogy
+                        átnevezte a fájlt. A Git azonban nagyon okosan tudja ezt
+                        utólag kitalálni.
+                    </p>
+                    <p>
+                        Ezért kissé zavaró, hogy a Gitnek van mv parancsa. Ha át
+                        szeretnénk nevezni egy fájlt a Gitben, futtassuk a
+                        következőket:
+                    </p>
+                    <dl>
+                        <dt>git mv elso.txt modositott_elso.txt</dt>
+                    </dl>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_050.png" />
+                        </picture>
+                    </div>
+                    <p>Látható, hogy átnevezte a Git az állományt.</p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

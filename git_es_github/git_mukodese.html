@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link
+            rel="shortcut icon"
+            href="../src/info-bg.png"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="../src/stilus.css"
+        />
+        <title>A Git működése</title>
+    </head>
+    <body>
+        <nav>
+            <a href="./index.html">Hasznos Tartalmak</a>
+            <a href="#fel">
+                <span class="material-symbols-outlined">stat_3</span>
+            </a>
+        </nav>
+        <span id="fel"></span>
+        <div class="container">
+            <h1>Git és Github</h1>
+            <h2>A Git működése</h2>
+        </div>
+        <div class="container">
+            <h1>A Git működése</h1>
+            <div class="belso-container">
+                <h2>Pillanatképek (Snapshot)</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_014.jpg" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        A fő különbség a Git és bármely más VCS között az,
+                        ahogyan a Git gondolkodik az adatairól. Elméletileg a
+                        legtöbb más rendszer fájlalapú változtatások listájaként
+                        tárolja az információkat. A többi rendszer az általuk
+                        tárolt információkat fájlok halmazaként és az egyes
+                        fájlokon idővel végrehajtott változtatásokként képzelik
+                        el (ezt általában delta alapú verzióvezérlésnek
+                        nevezik).
+                    </p>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_015.png" />
+                        </picture>
+                    </div>
+                    <p>
+                        A Git nem így gondolkodik és nem tárolja az adatait.
+                        Ehelyett a Git az adatait inkább egy miniatűr
+                        fájlrendszer pillanatképeinek sorozatának tekinti. A Git
+                        segítségével minden alkalommal, amikor véglegesíti vagy
+                        elmenti a projekt állapotát, a Git alapvetően képet
+                        készít arról, hogyan néz ki az összes fájl abban a
+                        pillanatban, és eltárol egy hivatkozást a pillanatképre.
+                        A hatékonyság érdekében, ha a fájlok nem változtak, a
+                        Git nem tárolja újra a fájlt, csak egy hivatkozást a
+                        korábban már tárolt azonos fájlra. A Git az adatait
+                        inkább pillanatképek (snapshot) folyamának tekinti.
+                    </p>
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_016.png" />
+                        </picture>
+                    </div>
+                    <h3>Tulajdonságok:</h3>
+                    <p>
+                        A Git legtöbb műveletének csak helyi fájlokra és
+                        erőforrásokra van szüksége a működéshez - általában
+                        nincs szükség információra a hálózaton lévő másik
+                        számítógéptől. Mivel a projekt teljes története ott van
+                        a helyi lemezen, a legtöbb művelet szinte azonnalinak
+                        tűnik.
+                    </p>
+                    <p>
+                        A projekt előzményeinek böngészéséhez a Gitnek nem kell
+                        kimennie a szerverre, hogy lekérje és megjelenítse az
+                        előzményeket - egyszerűen beolvassa közvetlenül a helyi
+                        adatbázisból. Ez azt jelenti, hogy szinte azonnal
+                        láthatja a projekt történetét. Ha szeretné látni a fájl
+                        jelenlegi verziója és az egy hónappal ezelőtti fájl
+                        között bevezetett változtatásokat, a Git megkeresheti a
+                        fájlt, és elvégezheti a helyi különbség kiszámítását.
+                    </p>
+                    <p>
+                        Ez azt is jelenti, hogy nagyon kevés olyan dolog van,
+                        amit nem tehetsz meg, ha offline vagy VPN nélkül vagy.
+                        Ha felszállsz egy repülőgépre vagy vonatra, és szeretnél
+                        egy kicsit dolgozni, nyugodtan dolgozhatsz a helyi
+                        (local) példányon, amíg el nem éred a hálózati
+                        kapcsolatot a feltöltéshez.
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Ellenőrző összeg (Checksum)</h1>
+            <div class="belso-container">
+                <h2>Ellenőrző összegzés</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_017.jpg" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        A Gitben minden a tárolás előtt ellenőrzőösszegzésre
+                        kerül, majd ez az ellenőrzőösszeg hivatkozik rá. Ez azt
+                        jelenti, hogy lehetetlen bármilyen fájl vagy könyvtár
+                        tartalmát megváltoztatni anélkül, hogy a Git ne tudna
+                        róla. Ez a funkció a legalacsonyabb szinten van beépítve
+                        a Gitbe, és szerves részét képezi annak filozófiájának.
+                        Nem veszíthet el információkat az átvitel során, és nem
+                        sérülhet meg a fájl anélkül, hogy a Git nem észlelné
+                        azokat.
+                    </p>
+                    <p>
+                        A Git által ehhez az ellenőrzőösszegzéshez használt
+                        mechanizmust SHA-1 hash-nek nevezik. Ez egy 40
+                        karakterből álló karakterlánc, amely hexadecimális
+                        karakterekből (0-9 és a-f) áll, és a Git fájl- vagy
+                        könyvtárszerkezetének tartalma alapján kerül
+                        kiszámításra. Az SHA-1 hash valahogy így néz ki:
+                    </p>
+                    <dl>
+                        <dt class="hosszu">
+                            24b9da6552252987aa493b52f8696cd6d3b00373
+                        </dt>
+                    </dl>
+                    <p>
+                        Ezeket a hash értékeket mindenhol látni fogod a Gitben,
+                        mert nagyon sokat használja őket. Valójában a Git az
+                        adatbázisában mindent nem fájlnévvel, hanem a
+                        tartalmának hash értékével tárol.
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://en.wikipedia.org/wiki/Checksum"
+                            target="_blank"
+                            >Wikipédia - Checksum</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>A Három Állapot (Three States)</h1>
+            <div class="belso-container">
+                <h2>Beállítás</h2>
+                <div class="valasz link-nelkul">
+                    <div class="kep">
+                        <picture>
+                            <img src="./images/kep_018.png" />
+                        </picture>
+                    </div>
+                    <h3>Leírás:</h3>
+                    <p>
+                        A Gitnek három fő állapota van, amelyben a fájlok
+                        elhelyezkedhetnek, miután a Git hatókörébe kerültek:
+                    </p>
+                    <dl>
+                        <dt>
+                            - <b>módosított (modified):</b> azt jelenti, hogy
+                            módosítottuk a fájlt, de még nem helyeztük el az
+                            adattár (repository) adatbázisába.
+                        </dt>
+                        <dt>
+                            - <b>színpadra tett (staged):</b> azt jelenti, hogy
+                            megjelöltünk egy módosított fájlt a jelenlegi
+                            verzióban, hogy a következő véglegesítési
+                            pillanatképbe (snapshot) kerülhessen.
+                        </dt>
+                        <dt>
+                            - <b>véglegesített (committed): </b> azt jelenti,
+                            hogy az adatokat biztonságosan tároltuk a helyi
+                            adatbázisban.
+                        </dt>
+                    </dl>
+                    <p>Ez elvezet minket a Git-projekt három fő részéhez:</p>
+                    <dl>
+                        <dt>
+                            - <b>munkafa (working tree)</b> - a projekt egyik
+                            verziójának a lekért másolata (checkout) a gépen.
+                            Ezeket a fájlokat a rendszer lekéri a tömörített
+                            adatbázisából a Git könyvtárnak, hogy
+                            felhasználhassuk vagy módosíthassuk.
+                        </dt>
+                        <dt>
+                            - <b>színpad (staging area)</b> - egy fájl, amely
+                            általában a Git-könyvtárban található, és
+                            információt tárol arról, hogy mi kerül be a
+                            következő véglegesítésbe (commit).
+                        </dt>
+                        <dt>
+                            - <b>Git-könyvtár (Git-directory)</b> - az, ahol a
+                            Git tárolja a projekt metaadatait és
+                            objektumadatbázisát.
+                        </dt>
+                    </dl>
+                    <p>
+                        Ha egy fájl egy adott verziója a Git-könyvtárban
+                        található, akkor az véglegesítettnek (committed)
+                        minősül. Ha módosították és hozzáadták a színpadhoz
+                        (staging area), akkor színpadra tett (staged). És ha a
+                        lekérés (checkout) óta megváltozott, de még nem tették
+                        színpadra, akkor módosított (modified).
+                    </p>
+                    <h3>Forrás:</h3>
+                    <p>
+                        <a
+                            href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F"
+                            target="_blank"
+                            >Git</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
